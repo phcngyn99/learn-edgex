@@ -114,6 +114,8 @@ func (s *Sample) SendGetCommand(ctx interfaces.AppFunctionContext, data interfac
 		return false, fmt.Errorf("function SendGetCommand in pipeline '%s', type received is not an Event", ctx.PipelineId())
 	}
 
+	fmt.Println("################ Test: %s", event)
+
 	lc.Debugf("Issuing Command Query for device %s in pipeline '%s'", event.DeviceName, ctx.PipelineId())
 
 	// First get the list of commands available for the Device that this current Event is for

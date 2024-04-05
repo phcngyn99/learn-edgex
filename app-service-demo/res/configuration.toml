@@ -129,7 +129,7 @@ Type="edgex-messagebus"
     Host = "localhost"
     Port = 6379
     Protocol = "redis"
-    SubscribeTopics="edgex/events/#"
+    SubscribeTopics="edgex/events/#" #prol /dev / res
     [Trigger.EdgexMessageBus.PublishHost]   # TODO: Remove if service is NOT publishing back to the message bus
     Host = "localhost"
     Port = 6379

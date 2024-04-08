@@ -32,6 +32,8 @@ import (
 	"github.com/edgexfoundry/app-functions-sdk-go/v2/pkg"
 	"github.com/edgexfoundry/app-functions-sdk-go/v2/pkg/interfaces"
 	"github.com/edgexfoundry/go-mod-core-contracts/v2/dtos"
+		"github.com/edgexfoundry/app-functions-sdk-go/v2/pkg/transforms"
+
 
 	"encoding/json"
 )
@@ -173,7 +175,7 @@ func main() {
 	// 2) shows how to access the application's specific configuration settings.
 	deviceNames, err := service.GetAppSettingStrings("DeviceNames")
 
-	fmt.Println("Filtering for devices", deviceNames)
+	fmt.Println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@Filtering for devices@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", deviceNames)
 
 	if err != nil {
 		// lc.Error(err.Error())
@@ -184,7 +186,7 @@ func main() {
 	// 3) This is our pipeline configuration, the collection of functions to
 	// execute every time an event is triggered.
 	if err := service.SetFunctionsPipeline(
-		// transforms.NewFilterFor(deviceNames).FilterByDeviceName,
+		transforms.NewFilterFor(deviceNames).FilterByDeviceName,
 		printEventData2,
 
 	// Place code to print here
